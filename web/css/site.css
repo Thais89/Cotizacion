@@ -1,0 +1,204 @@
+html,
+body {
+    height: 100%;
+}
+
+.wrap {
+    min-height: 100%;
+    height: auto;
+    margin: 0 auto -60px;
+    padding: 0 0 60px;
+}
+
+.wrap > .container {
+    padding: 70px 15px 20px;
+}
+
+.footer {
+    height: 60px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+}
+
+.jumbotron {
+    text-align: center;
+    background-color: transparent;
+}
+
+.jumbotron .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+}
+
+.not-set {
+    color: #c55;
+    font-style: italic;
+}
+
+/* add sorting icons to gridview sort links */
+a.asc:after, a.desc:after {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    padding-left: 5px;
+}
+
+a.asc:after {
+    content: /*"\e113"*/ "\e151";
+}
+
+a.desc:after {
+    content: /*"\e114"*/ "\e152";
+}
+
+.sort-numerical a.asc:after {
+    content: "\e153";
+}
+
+.sort-numerical a.desc:after {
+    content: "\e154";
+}
+
+.sort-ordinal a.asc:after {
+    content: "\e155";
+}
+
+.sort-ordinal a.desc:after {
+    content: "\e156";
+}
+
+.grid-view th {
+    white-space: nowrap;
+}
+
+.hint-block {
+    display: block;
+    margin-top: 5px;
+    color: #999;
+}
+
+.error-summary {
+    color: #a94442;
+    background: #fdf7f7;
+    border-left: 3px solid #eed3d7;
+    padding: 10px 20px;
+    margin: 0 0 15px 0;
+}
+
+
+html,
+body {
+  height: 100%;
+  font-family: 'Open Sans', sans-serif; }
+
+h1,
+h2,
+h3,
+h4 {
+  text-transform: uppercase; }
+
+h1 {
+  font-weight: 700; }
+
+h2 {
+  font-weight: 600; }
+
+.wrap {
+  min-height: 100%;
+  height: auto;
+  margin: 0 auto -60px;
+  padding: 0 0 60px; }
+
+.wrap > .container {
+  padding: 70px 15px 20px; }
+
+/* add sorting icons to gridview sort links */
+.user-panel {
+  min-height: 250px; }
+
+.user-title {
+  font-weight: 700;
+  font-size: 1.4em; }
+
+.user-name {
+  font-size: 1.2em; }
+
+.top-bar {
+  background-color: #000000;
+  color: #ffffff; }
+  .top-bar ul {
+    padding: 0;
+    list-style-type: none;
+    margin: .3em 1em .3em 0; }
+    .top-bar ul li {
+      display: inline-block;
+      margin-right: .5em; }
+      .top-bar ul li a {
+        color: #ffffff; }
+        .top-bar ul li a:hover {
+          color: #ff5555; }
+
+.main-header {
+  padding-top: .3em; }
+  .main-header img {
+    max-width: 150px; }
+  .main-header .main-nav {
+    background-color: #ff5555;
+    height: 50px; }
+    .main-header .main-nav a {
+      color: #ffffff !important;
+      text-transform: uppercase; }
+      .main-header .main-nav a:hover {
+        color: #000000 !important; }
+  .main-header .header-login {
+    padding-top: 2em; }
+
+.navbar-default {
+  background-color: transparent !important;
+  border: 0; }
+  .navbar-default .navbar-nav > .active > a,
+  .navbar-default .navbar-nav > .active > a:hover,
+  .navbar-default .navbar-nav > .active > a:focus {
+    background-color: #ffffff !important;
+    color: #000000 !important; }
+
+
+
+.container-full {
+  width: 100%; }
+
+.carousel {
+  height: 500px;
+  margin-bottom: 60px; }
+
+.carousel-caption {
+  z-index: 10; }
+
+.carousel .item {
+  height: 500px;
+  background-color: #777; }
+
+.carousel-inner > .item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 500px; }
+
+.carousel h1 {
+  color: #000000; }
+
+.breadcrumb {
+  background-color: transparent !important;
+  border: 0; }
+
+.well-lg {
+  min-height: 200px; }
+
+.form-horizontal .checkbox {
+  padding-top: 0px !important; }
