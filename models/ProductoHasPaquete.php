@@ -40,6 +40,20 @@ class ProductoHasPaquete extends \yii\db\ActiveRecord
     }
 
   
+  public function CheckCantidad($attribute, $params)
+    {
+        $cant = Producto::find()->where(['codigo'=>$this->producto_codigo])->one();
+        
+        if($cant->disponibilidad<$this->cantidad)
+        {
+            $this->addError($attribute,'Cantidad insuficiente, Disponibilidad: '.$cant->disponibilidad);
+        }
+        elseif($cant->disponibilidad<$this->cantidad*$this->d)
+        {
+            $this->addError($attribute,'Cantidad insuficiente para cubrir la cantidad de paquetes, Disponibilidad: '.$cant->disponibilidad);
+        }
+    }
+
     /**
      * @inheritdoc
      */
