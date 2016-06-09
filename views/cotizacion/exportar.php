@@ -11,8 +11,8 @@ $objPHPExcel->getProperties()->setCreator("Prueba Cotizacion")
 // 
 	$objPHPExcel->getActiveSheet()->getColumnDimension('A')->setWidth(20);
     $objPHPExcel->getActiveSheet()->getColumnDimension('B')->setWidth(20);
-    $objPHPExcel->getActiveSheet()->getColumnDimension('C')->setWidth(40);
-    $objPHPExcel->getActiveSheet()->getColumnDimension('D')->setWidth(40);
+    $objPHPExcel->getActiveSheet()->getColumnDimension('C')->setWidth(30);
+    $objPHPExcel->getActiveSheet()->getColumnDimension('D')->setWidth(30);
 
 $objPHPExcel->setActiveSheetIndex(0)
             ->setCellValue('A1', 'Nombre Cliente')
@@ -28,25 +28,27 @@ $objPHPExcel->setActiveSheetIndex(0)
 
 $objPHPExcel->setActiveSheetIndex(0)->setCellValue('A6', 'Nombre Paquete')
 									->setCellValue('B6', 'Cantidad Paquete')
-									->setCellValue('C6', 'Costo Paquete');
+									->setCellValue('C6', 'Costo Unitario')
+									->setCellValue('D6', 'Costo Total');
 $i = 7;
 $acumulado = 0;
-foreach ($model->fkPaquetes as $paquete)
+foreach ($model->cotizacionHasPaquetes as $paquete)
 {
-	$objPHPExcel->setActiveSheetIndex(0)->setCellValue('A'.$i, $paquete->nombre)
+	$objPHPExcel->setActiveSheetIndex(0)->setCellValue('A'.$i, $paquete->fkPaquete0->nombre)
 										->setCellValue('B'.$i, $paquete->cantidad)
-										->setCellValue('C'.$i, $paquete->monto);
-	$acumulado += $paquete->monto;
+										->setCellValue('C'.$i, $paquete->fkPaquete0->monto)
+										->setCellValue('D'.$i, $paquete->fkPaquete0->monto * $paquete->cantidad );
+	$acumulado += $paquete->fkPaquete0->monto * $paquete->cantidad;
 	$i++;
 }
-$objPHPExcel->setActiveSheetIndex(0)->setCellValue('B'.$i, 'Sub-Total')
-									->setCellValue('C'.$i, $acumulado);
+$objPHPExcel->setActiveSheetIndex(0)->setCellValue('C'.$i, 'Sub-Total')
+									->setCellValue('D'.$i, $acumulado);
 $i++;
-$objPHPExcel->setActiveSheetIndex(0)->setCellValue('B'.$i, 'Descuento')
-									->setCellValue('C'.$i, $model->descuento.'%');
+$objPHPExcel->setActiveSheetIndex(0)->setCellValue('C'.$i, 'Descuento')
+									->setCellValue('D'.$i, $model->descuento.'%');
 $i++;
-$objPHPExcel->setActiveSheetIndex(0)->setCellValue('B'.$i, 'Total')
-									->setCellValue('C'.$i, $model->total);
+$objPHPExcel->setActiveSheetIndex(0)->setCellValue('C'.$i, 'Total')
+									->setCellValue('D'.$i, $model->total);
 
 // Rename worksheet
 $objPHPExcel->getActiveSheet()->setTitle("Cotizacion ". $model->nombre);
